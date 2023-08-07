@@ -2,6 +2,6 @@ def call(map stageParams) {
     checkout scmGit(
             branches: [[name: stageParams.branch]],
             extensions: [], 
-            userRemoteConfigs: [[giturl: stageParams.url]]
+            userRemoteConfigs: [[url: stageParams.url]]
             )
 }
