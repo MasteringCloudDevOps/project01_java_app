@@ -8,7 +8,7 @@ pipeline {
                 script {
                     gitCheckout(
                         branch: "main"
-                        url: "https://github.com/MasteringCloudDevOps/project01_java_app.git"
+                        giturl: "https://github.com/MasteringCloudDevOps/project01_java_app.git"
                     )
                 }
             }
