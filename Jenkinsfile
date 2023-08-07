@@ -7,12 +7,18 @@ pipeline {
             steps {
                 script {
                     gitCheckout(
-                        branch: "main"
+                        branch: "main" ,
                         url: "https://github.com/MasteringCloudDevOps/project01_java_app.git"
                     )
                 }
             }
         }
-      
+        stage('Unit Test Maven') {
+            steps {
+                script {
+                    mvnTest()
+                }
+            }
+        }
     }
 }
