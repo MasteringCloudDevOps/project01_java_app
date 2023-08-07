@@ -4,7 +4,11 @@ pipeline {
         stage('Git Checkout') {
             steps {
                 script {
-                    git branch: 'main', url: 'https://github.com/MasteringCloudDevOps/project01_java_app.git'
+                    checkout scmGit(
+                        branches: [[name: '*/main']],
+                        extensions: [], 
+                        userRemoteConfigs: [[url: 'https://github.com/MasteringCloudDevOps/project01_java_app.git']]
+                        )
                 }
             }
         }
