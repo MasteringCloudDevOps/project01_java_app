@@ -1,14 +1,22 @@
+@Library('my-shared-library') _
+
 pipeline {
     agent any
     stages {
         stage('Git Checkout') {
             steps {
                 script {
-                    checkout scmGit(
-                        branches: [[name: '*/main']],
-                        extensions: [], 
-                        userRemoteConfigs: [[url: 'https://github.com/MasteringCloudDevOps/project01_java_app.git']]
-                        )
+                    gitCheckout(
+                        branch: "main"
+                        url: "https://github.com/MasteringCloudDevOps/project01_java_app.git"
+                    )
+                }
+            }
+        }
+        stage('Unit Test Maven') {
+            steps {
+                script {
+                    mvnTest()
                 }
             }
         }
